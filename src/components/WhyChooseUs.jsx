@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const WhyChooseUs = () => {
   return (
-    <div className="flex gap-10 p-5 ">
+    <div className="flex gap-10 px-5 ">
       <div className="">
         <img
           src="https://images.unsplash.com/photo-1614095557130-2f4a9e1da57d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hpcCUyMG9uJTIwc2VhfGVufDB8fDB8fHww"
@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
               gradient={false}
               speed={12}
               direction="right"
-              className="w-[600px]">
+              className="w-[600px] p-2">
               <p className="text-white text-lg font-bold whitespace-nowrap">
                 We Give Donations Poor People &nbsp;&nbsp;&nbsp;&nbsp;
               </p>

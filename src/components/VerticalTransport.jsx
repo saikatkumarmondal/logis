@@ -1,15 +1,23 @@
 import React, { useEffect, useRef } from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const VerticalTransport = () => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    // Automatically scroll this section into view after load
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      easing: "ease-in-out",
+      mirror: true,
+    });
   }, []);
 
   return (
-    <div className="space-y-5" ref={scrollRef}>
+    <div className="space-y-2 " ref={scrollRef}>
       <h2 className="text-3xl text-red-500 underline text-center">
         VERTICAL TRANSPORT
       </h2>

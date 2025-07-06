@@ -1,0 +1,38 @@
+.slide1{
+    background-image: url('https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/ships/allure/allure-of-the-seas-naples-italy.jpg?$880x1428$');
+  
+}
+.slide2{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/db/Sea_Cloud_I.jpg');
+}
+.slide3{
+    background-image: url('https://img.freepik.com/premium-photo/silhouette-sailboat-sailing-sea-against-sky_1048944-25400845.jpg?semt=ais_hybrid&w=740');
+}
+
+
+
+
+.slide{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.swiper-button-next::after{
+   content:'\f138' !important;
+   font-family: fontAwesome !important;
+   font-weight: bold;
+}
+.swiper-button-prev::after{
+    content: '\f137' !important;
+    font-family: fontAwesome !important;
+    font-weight: bold;
+}
+.swiper{
+    padding-bottom: 2rem;
+}
+.swiper-pagination .swiper-pagination-bullets .swiper-pagination-horizontal{
+    margin-bottom: -0.5rem;
+
+}

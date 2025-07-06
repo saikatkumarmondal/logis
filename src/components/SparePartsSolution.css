@@ -1,0 +1,22 @@
+/* SparePartsSolution.css */
+
+.card-container.active .card-content::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Adjust to position the triangle below the card */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px; /* Size of the triangle */
+    height: 20px; /* Size of the triangle */
+    background-color: #fff; /* Match card background or desired color */
+    border-bottom: 2px solid #D1D5DB; /* Match border color */
+    border-right: 2px solid #D1D5DB; /* Match border color */
+    z-index: 20; /* Ensure it's above other elements if needed */
+}
+
+/* For the circular number (e.g., 3) with a border */
+.timeline-number.active {
+    background-color: #E60000; /* Red background for active number */
+    color: white; /* White text for active number */
+    border: 2px solid #E60000; /* Red border for active number */
+}
