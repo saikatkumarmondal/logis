@@ -19,7 +19,7 @@ const OurWorks = () => {
   const nextRef = useRef(null);
 
   return (
-    <div className="mx-auto p-10 relative">
+    <div className="mx-auto p-4 md:p-10 relative" data-aos="zoom-out-up">
       {/* Custom Navigation Buttons */}
       <div
         ref={prevRef}
@@ -45,8 +45,21 @@ const OurWorks = () => {
           delay: 2000,
           disableOnInteraction: false,
         }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
         onBeforeInit={(swiper) => {
-          // Swiper needs to be told about the refs
           if (typeof swiper.params.navigation !== "boolean") {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
@@ -59,7 +72,7 @@ const OurWorks = () => {
         className="mySwiper">
         {[1, 2, 3].map((_, i) => (
           <SwiperSlide key={i}>
-            <div className="bg-white p-4 rounded-lg flex flex-col w-[393px] h-[292px]">
+            <div className="bg-white p-4 rounded-lg flex flex-col w-full max-w-[393px] h-[292px] mx-auto">
               {/* Image */}
               <div className="relative w-full h-[180px] mb-4 overflow-hidden rounded-xl">
                 <img

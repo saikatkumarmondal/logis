@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 const CarouselDemo = () => {
   return (
     <>
-      <div className="max-w-[1200px] mx-auto py-10">
+      <div className="max-w-[1200px] mx-auto py-10" data-aos="zoom-out-up">
         <h1 className="text-4xl font-bold mb-8 text-center">Our Works</h1>
         <p className="text-center text-gray-600 mb-10">
           Reliable elevators and escalators for safe, efficient, and

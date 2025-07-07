@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
   const settings = {
-    dots: true, 
+    dots: true,
     infinite: true,
     speed: 800,
     slidesToShow: 3,
@@ -14,22 +14,24 @@ const Hero = () => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
+        breakpoint: 1024, // tablet
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768, // mobile
+        settings: {
+          slidesToShow: 1,
+        },
       },
     ],
   };
 
-  const images = [
-    "/i1.jpg",
-    "/i2.jpg",
-      "/i3.jpg",
-    "/i4.jpg"
-   
-  ];
+  const images = ["/i1.jpg", "/i2.jpg", "/i3.jpg", "/i4.jpg"];
 
   return (
-    <div className="max-w-6xl mx-auto my-10" data-aos="fade-up">
+    <div className="max-w-6xl mx-auto my-10 px-4" data-aos="fade-up">
       <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index} className="px-2">

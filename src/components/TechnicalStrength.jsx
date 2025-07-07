@@ -2,35 +2,43 @@ import React from "react";
 import QuoteThree from "../assets/images/shapes/quote-three-bg.png";
 import MoonShape from "../assets/images/shapes/moon-shape.png";
 import PlaneLogo from "../assets/images/shapes/contact-us-three-plane.png";
+
 const TechnicalStrength = () => {
-    console.log(PlaneLogo)
+  console.log(PlaneLogo);
   return (
-    <div className="flex mt-5 p-10 relative bg-gray-200">
+    <div className="flex flex-col md:flex-row mt-5 p-4 md:p-10 relative bg-gray-200 gap-6 md:gap-10">
+      {/* Left side with clipped background and moon */}
       <div
         style={{
           backgroundImage: `url(${QuoteThree})`,
           clipPath:
             "polygon(0% 0%, 100% 0%, 100% 100%, 94% 97%, 52% 71%, 35% 78%, 0 97%)",
         }}
-        className="w-1/2 h-96 bg-cover bg-center bg-gray-200 rounded-lg shadow-lg p-10 relative overflow-hidden">
+        className="w-full md:w-1/2 h-64 md:h-96 bg-cover bg-center bg-gray-200 rounded-lg shadow-lg p-6 md:p-10 relative overflow-hidden">
         <img
           src={MoonShape}
           alt="Moon"
-          className="w-[170px] object-cover absolute -top-10 -left-7"
+          className="w-32 md:w-[170px] object-cover absolute -top-8 -left-6 md:-top-10 md:-left-7"
         />
 
-        <h1
-          className="absolute 
-         right-90 text-white text-4xl font-bold ">
+        <h1 className="absolute right-6 md:right-24 top-6 text-white text-2xl md:text-4xl font-bold">
           Technical Strength
         </h1>
       </div>
 
-      <div className=" bg-gray-300">
-              <div className="w-[200px] absolute">
-                  <img src={PlaneLogo} alt="" className="w-16 relative -left-5" />
+      {/* Right side with plane logo and video */}
+      <div className="w-full md:w-1/2 bg-gray-300 relative flex flex-col items-center md:items-start p-4 rounded-lg">
+        <div className="absolute top-4 left-4 w-20 md:w-[200px]">
+          <img
+            src={PlaneLogo}
+            alt=""
+            className="w-12 md:w-16 relative -left-10 md:-left-20 -top-4 md:-top-6 transform rotate-[-30deg] md:rotate-[-100deg] transition-transform duration-300 hover:scale-110 hover:rotate-[-60deg] cursor-pointer"
+          />
         </div>
-        <video controls className="w-[700px] h-[370px]">
+
+        <video
+          controls
+          className="w-full max-w-full md:max-w-[700px] h-auto md:h-[370px] rounded-md mt-16 md:mt-0">
           <source src="/video.mp4" type="video/mp4" />
         </video>
       </div>
