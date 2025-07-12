@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./SparePartsSolution.css";
 import SecondIcon from "../assets/images/icons/tranport-way-icon3.svg";
-
+import gsap from "gsap";
+import StarImage from "../assets/star.png";
 const SparePartsSolution = () => {
+  const svgRef = useRef();
+  const startRef = useRef();
+  useEffect(() => {
+    gsap.to(svgRef.current, {
+      x: -100,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      startRef.current,
+      { x: -20, rotate: 360 },
+      {
+        x: 1300,
+        duration: 5,
+        delay: 1,
+        rotate: -360,
+        repeat: -1,
+        ease: "linear",
+      }
+    );
+  }, []);
   return (
     <div className="pl-10  ">
       <h2 className="text-4xl font-bold text-center">Spare Parts Solution</h2>
@@ -25,7 +52,9 @@ const SparePartsSolution = () => {
               </div>
             </div>
 
-            <div className="relative w-[300px] h-[300px] bg-gray-400 space-y-5  rounded-lg p-4">
+            <div
+              className="relative w-[300px] h-[300px] bg-gray-400 space-y-5  rounded-lg p-4"
+              data-aos="fade-up">
               <h2 className="text-3xl font-bold text-center pt-6">
                 Select services
               </h2>
@@ -43,7 +72,30 @@ const SparePartsSolution = () => {
           </div>
         ))}
       </div>
-      <div className="border-2 border-dashed border-gray-300 relative -bottom-11 mb-9"></div>
+      <div>
+        <div className="w-9 h-4 absolute">
+          <img
+            src={StarImage}
+            alt=""
+            className="relative -bottom-9"
+            ref={startRef}
+          />
+        </div>
+        <svg
+          width="1500"
+          height="160"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1500 160"
+          ref={svgRef}
+          className="relative -top-7">
+          <path
+            d="M 10 80 Q 750 95 1480 80"
+            stroke="black"
+            fill="transparent"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,48 @@
 // src/components/Banner.jsx
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactPlayer from "react-player";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import planeImage from "/contact-us-three-plane.png";
 const Banner = () => {
+  const planeRef = useRef();
+  const textRef = useRef();
+  const buttonRef = useRef();
+  useEffect(() => {
+    if (planeRef.current) {
+      gsap.to(planeRef.current, {
+        rotation: 360,
+        y: 120,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    gsap.from(textRef.current, {
+      opacity: 0,
+      y: 45,
+
+      duration: 2,
+      repeat: -1,
+      ease: "power4.out",
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.to(buttonRef.current, {
+      scale: 1.1,
+      backgroundColor: "#f59e0b",
+      duration: 0.6,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+  }, []);
+
   const SquareCheckIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -47,10 +87,17 @@ const Banner = () => {
 
       {/* Text and Buttons */}
       <div className="relative z-10 text-white w-full md:w-1/2 lg:w-2/5 ml-auto md:ml-[400px] pr-4 md:pr-16 flex flex-col items-center md:items-start justify-end text-center md:text-left px-4">
-        <div className="fixed" data-aos="fade-left">
-          <img src={planeImage} alt="" className="relative -top-55 left-100" />
+        <div className="absolute" data-aos="fade-left">
+          <img
+            src={planeImage}
+            alt=""
+            className="relative -top-55 left-100"
+            ref={planeRef}
+          />
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+        <h2
+          className="text-3xl md:text-5xl font-bold leading-tight mb-6"
+          ref={textRef}>
           Welcome to SIFA Elevator
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 items-center">

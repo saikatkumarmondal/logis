@@ -88,7 +88,7 @@ const OurWorks = () => {
               {/* Info */}
               <div className="flex items-center justify-between mb-2 text-red-600 text-sm">
                 <div className="flex items-center gap-1">
-                  <CgProfile /> <span>Mehedii .H</span>
+                  <CgProfile /> <span>Saikat</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <FaRegCommentDots /> <span>Comments (03)</span>

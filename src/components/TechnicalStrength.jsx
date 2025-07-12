@@ -4,10 +4,21 @@ import MoonShape from "../assets/images/shapes/moon-shape.png";
 import PlaneLogo from "../assets/images/shapes/contact-us-three-plane.png";
 
 const TechnicalStrength = () => {
-  console.log(PlaneLogo);
   return (
-    <div className="flex flex-col md:flex-row mt-5 p-4 md:p-10 relative bg-gray-200 gap-6 md:gap-10">
-      {/* Left side with clipped background and moon */}
+    <div className="flex flex-col md:flex-row mt-5 p-4 md:p-10 relative bg-gray-200 gap-6 md:gap-10 overflow-hidden">
+      {/* <div className="absolute -right-170 w-full z-10 pointer-events-none">
+        <img src={PlaneLogo} alt="Plane" className="w-24 md:w-40 animate-fly" />
+      </div> */}
+
+      <div
+        className="absolute -right-170 w-full z-10 pointer-events-none"
+        data-aos="zoom-in-left">
+        <img
+          src={PlaneLogo}
+          alt="Plane"
+          className="w-24 md:w-40 animate-flyWithWave"
+        />
+      </div>
       <div
         style={{
           backgroundImage: `url(${QuoteThree})`,
@@ -26,16 +37,7 @@ const TechnicalStrength = () => {
         </h1>
       </div>
 
-      {/* Right side with plane logo and video */}
       <div className="w-full md:w-1/2 bg-gray-300 relative flex flex-col items-center md:items-start p-4 rounded-lg">
-        <div className="absolute top-4 left-4 w-20 md:w-[200px]">
-          <img
-            src={PlaneLogo}
-            alt=""
-            className="w-12 md:w-16 relative -left-10 md:-left-20 -top-4 md:-top-6 transform rotate-[-30deg] md:rotate-[-100deg] transition-transform duration-300 hover:scale-110 hover:rotate-[-60deg] cursor-pointer"
-          />
-        </div>
-
         <video
           controls
           className="w-full max-w-full md:max-w-[700px] h-auto md:h-[370px] rounded-md mt-16 md:mt-0">

@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaLock } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
 import barsLogo from "../assets/images/icons/bars.svg";
 import barsTwo from "../assets/images/icons/bars-two.svg";
 import cartLogo from "../assets/images/icons/cart.svg";
 import { IoIosArrowRoundDown, IoIosArrowRoundUp } from "react-icons/io";
-
+import ShipImage from "../assets/ship.png";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-
+  const divRef = useRef();
+  const imageRef = useRef();
   const menuItems = [
     "Home",
     "About Us",
@@ -20,14 +23,49 @@ const Navbar = () => {
     "Newsroom",
   ];
 
+  useGSAP(() => {
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
+    tl.to(divRef.current, {
+      x: 155,
+      duration: 2,
+      ease: "power2.out",
+    }).to(divRef.current, {
+      x: -6,
+      duration: 2,
+      ease: "power2.out",
+    });
+  }, []);
+  useGSAP(() => {
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
+    tl.to(imageRef.current, {
+      x: 10,
+      duration: 1,
+      ease: "power1.out",
+    }).to(divRef.current, {
+      x: -6,
+      duration: 2,
+      ease: "power2.out",
+    });
+  }, []);
+
   return (
-    <div className="h-auto bg-blue-500 px-4 py-2 grid grid-cols-2 md:grid-cols-3 items-center">
+    <div className="h-auto bg-blue-500 px-9 py-2 grid grid-cols-2 md:grid-cols-3 items-center">
       {/* Left Logo */}
       <div
+        ref={divRef}
         className="h-[110px] w-[139px] bg-red-900"
         style={{
           clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)",
-        }}></div>
+        }}>
+        <div className="h-[#95px] w-[120px] flex items-center">
+          <img
+            src={ShipImage}
+            className="w-full h-full"
+            alt=""
+            ref={imageRef}
+          />
+        </div>
+      </div>
 
       {/* Center Navigation Menu (hidden on mobile) */}
       <ul className="hidden md:flex gap-3 text-white">
