@@ -1,28 +1,49 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FollowCursor = ({ color = "#ff0000aa" }) => {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
+  const requestRef = useRef();
+  const mouse = useRef({ x: 0, y: 0 });
+  const pos = useRef({ x: 0, y: 0 });
   const [isHoveringText, setIsHoveringText] = useState(false);
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e) => {
+      mouse.current.x = e.clientX;
+      mouse.current.y = e.clientY;
 
       const target = e.target;
-      if (target.closest(".hover-text")) {
-        setIsHoveringText(true);
-      } else {
-        setIsHoveringText(false);
-      }
+      setIsHoveringText(!!target.closest(".hover-text"));
     };
 
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
-  }, []);
+    const animate = () => {
+      // Linear interpolation
+      pos.current.x += (mouse.current.x - pos.current.x) * 0.15;
+      pos.current.y += (mouse.current.y - pos.current.y) * 0.15;
+
+      const el = cursorRef.current;
+      if (el) {
+        const offset = isHoveringText ? 60 : 12;
+        el.style.left = `${pos.current.x - offset}px`;
+        el.style.top = `${pos.current.y - offset}px`;
+      }
+
+      requestRef.current = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    requestRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(requestRef.current);
+    };
+  }, [isHoveringText]);
 
   return (
     <div
-      className={`fixed pointer-events-none rounded-full z-[9999] transition-all duration-200 ease-linear 
+      ref={cursorRef}
+      className={`fixed pointer-events-none rounded-full z-[9999] transition-all ease-linear 
         ${
           isHoveringText
             ? "w-[120px] h-[120px] mix-blend-difference"
@@ -30,8 +51,6 @@ const FollowCursor = ({ color = "#ff0000aa" }) => {
         }`}
       style={{
         backgroundColor: color,
-        left: cursorPos.x - (isHoveringText ? 60 : 12),
-        top: cursorPos.y - (isHoveringText ? 60 : 12),
       }}></div>
   );
 };

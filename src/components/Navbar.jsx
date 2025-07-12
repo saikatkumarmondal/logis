@@ -49,7 +49,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="h-auto bg-blue-500 px-9 py-2 grid grid-cols-2 md:grid-cols-3 items-center">
+    <div className="h-auto sticky top-0 z-50 bg-blue-500 px-9 py-2 grid grid-cols-2 md:grid-cols-3 items-center">
       {/* Left Logo */}
       <div
         ref={divRef}

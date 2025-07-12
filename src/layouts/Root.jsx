@@ -6,6 +6,7 @@ import Banner from "../components/Banner";
 import Strength from "../components/Strength";
 import Footer from "../components/Footer";
 import FollowCursor from "../components/FollowCursor";
+import BouncingText from "../components/BouncingText";
 
 const Root = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -19,6 +20,7 @@ const Root = () => {
     <div className={isDarkMode ? "bg-black text-white" : "bg-white text-black"}>
       {/* Cursor Follower */}
       <FollowCursor color="#ff0000aa" />
+      {/* <BouncingText /> */}
 
       <header className="bg-gray-400">
         <Header />
