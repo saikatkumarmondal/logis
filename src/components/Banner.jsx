@@ -23,7 +23,7 @@ const Banner = () => {
 
   useEffect(() => {
     gsap.from(textRef.current, {
-      opacity: 0,
+      opacity: 1,
       y: 45,
 
       duration: 2,
