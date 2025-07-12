@@ -1,49 +1,18 @@
-import React, { useRef } from "react";
+import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsTelephone } from "react-icons/bs";
 import { FaTwitter, FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import { BsYoutube } from "react-icons/bs";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 const Header = () => {
-  const liRef = useRef();
-  const listRef = useRef([]);
-  // useGSAP(() => {
-  //   gsap.fromTo(
-  //     liRef.current,
-  //     { y: -20 },
-  //     {
-  //       y: 20,
-  //       duration: 1.5,
-  //       repeat: -1,
-  //       yoyo: true,
-  //       ease: "power1.inOut",
-  //     }
-  //   );
-  // }, []);
-
-  // useGSAP(() => {
-  //   gsap.fromTo(
-  //     listRef.current,
-  //     { scale: 0.9 },
-  //     {
-  //       scale: 1.2,
-  //       duration: 3,
-  //       x: 10,
-  //       repeat: -1,
-  //       ease: "power1.inOut",
-  //     }
-  //   );
-  // }, []);
-
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 p-5 bg-blue-700">
+    <div className="flex sticky top-0 z-50 flex-col md:flex-row justify-between items-center gap-4 md:gap-0 p-5 bg-blue-700">
       {/* Left: Address + Email */}
       <ul className="flex flex-col md:flex-row gap-2 text-sm md:text-base">
-        <li className="text-white flex items-center gap-6 mr-5" ref={liRef}>
+        <li className="text-white flex items-center gap-6 mr-5">
           <FaLocationDot /> 55 Main Street, 2nd block, Malborne, Australia
         </li>
-        <li className="text-white flex items-center gap-2" ref={listRef}>
+        <li className="text-white flex items-center gap-2">
           <BsTelephone />
           support@example.com
         </li>
