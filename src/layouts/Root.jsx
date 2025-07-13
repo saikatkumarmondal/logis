@@ -7,6 +7,7 @@ import Strength from "../components/Strength";
 import Footer from "../components/Footer";
 import FollowCursor from "../components/FollowCursor";
 import BouncingText from "../components/BouncingText";
+import Navbar2 from "../components/Navbar2";
 
 const Root = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -24,7 +25,7 @@ const Root = () => {
 
       <header className="bg-gray-400">
         <Header />
-        <Navbar />
+        <Navbar2 />
         <Banner />
       </header>
 

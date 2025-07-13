@@ -21,13 +21,26 @@ const WhyChooseUs = () => {
           />
         </div>
 
-        <div className="bg-red-500 w-[70px] h-auto relative -right-[520px] -top-[850px] rounded-2xl">
-          <div className="absolute -left-[270px]  -right-119 top-53 bg-red-500 rotate-90 rounded-4xl">
+        <div className="bg-red-500 -top-[850px] w-[36px] md:w-[70px] md:h-auto relative md:-right-[520px] md:-top-[850px] rounded-2xl">
+          <div
+            className="
+      absolute 
+      left-30          /* mobile: near left */
+      bottom-[-500px] /* mobile: bottom offset */
+      h-[40px] 
+      w-[400px] 
+      md:left-[-60px]  /* md: move far left */
+      md:right-[119px]  /* md: override right */
+      md:top-[260px]     /* md: top position */
+      bg-red-500 
+      rotate-90 
+      rounded-4xl
+    ">
             <Marquee
               gradient={false}
               speed={12}
               direction="right"
-              className="w-[600px] p-2 ">
+              className="w-[600px] p-2">
               <p className="text-white text-lg font-bold whitespace-nowrap">
                 We Give Donations Poor People &nbsp;&nbsp;&nbsp;&nbsp;
               </p>
@@ -37,7 +50,7 @@ const WhyChooseUs = () => {
       </div>
 
       <div
-        className="px-6 py-6 bg-white shadow-xl rounded-2xl max-w-3xl mx-auto"
+        className=" md:px-6 py-6 bg-white shadow-xl rounded-2xl max-w-3xl mx-auto"
         data-aos="zoom-in-up">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-4">
           Why Choose Us

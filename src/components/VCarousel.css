@@ -1,0 +1,6 @@
+.swiper-button-prev,
+.swiper-button-next {
+  bottom: 0 !important;
+  top: auto !important;
+  transform: translateY(100%);
+}

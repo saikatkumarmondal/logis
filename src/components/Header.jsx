@@ -6,7 +6,7 @@ import { BsYoutube } from "react-icons/bs";
 
 const Header = () => {
   return (
-    <div className="flex sticky top-0 z-50 flex-col md:flex-row justify-between items-center gap-4 md:gap-0 p-5 bg-blue-700">
+    <div className="hidden md:flex md:sticky md:top-0 md:z-50  md:flex-row justify-between items-center gap-4 md:gap-0 p-5 bg-blue-700">
       {/* Left: Address + Email */}
       <ul className="flex flex-col md:flex-row gap-2 text-sm md:text-base">
         <li className="text-white flex items-center gap-6 mr-5">

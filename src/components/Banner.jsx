@@ -74,7 +74,7 @@ const Banner = () => {
       }}>
       {/* Video Player */}
       <div className="relative md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:ml-16 z-20 mb-8 md:mb-0">
-        <div className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden border-8 border-white shadow-xl flex items-center justify-center mx-auto">
+        <div className="w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden border-8 border-white shadow-xl flex items-center justify-center mx-auto">
           <video
             src="/video.mp4"
             autoPlay
@@ -91,7 +91,7 @@ const Banner = () => {
           <img
             src={planeImage}
             alt=""
-            className="relative -top-55 left-100"
+            className="relative -top-[380px] left-[120px] md:top-55 md:left-100"
             ref={planeRef}
           />
         </div>
@@ -100,11 +100,11 @@ const Banner = () => {
           ref={textRef}>
           Welcome to SIFA Elevator
         </h2>
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <button className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-md transition duration-300 ease-in-out w-full sm:w-auto justify-center">
+        <div className="flex items-center my-5 md:flex-col sm:flex-row gap-4 md:items-center">
+          <button className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-md transition duration-300 ease-in-out w-full  justify-center">
             View services <SquareCheckIcon />
           </button>
-          <button className="flex items-center gap-2 bg-transparent border-2 border-white hover:bg-white hover:text-red-600 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-md transition duration-300 ease-in-out w-full sm:w-auto justify-center">
+          <button className="flex items-center gap-2 bg-transparent border-2 border-white hover:bg-white hover:text-red-600 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-md transition duration-300 ease-in-out w-full justify-center">
             Who we are <ArrowCircleRightIcon />
           </button>
         </div>

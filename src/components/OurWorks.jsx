@@ -19,19 +19,21 @@ const OurWorks = () => {
   const nextRef = useRef(null);
 
   return (
-    <div className="mx-auto p-4 md:p-10 relative" data-aos="zoom-out-up">
+    <div
+      className="mx-auto px-4 sm:px-6 md:px-10 py-8 relative"
+      data-aos="zoom-out-up">
       {/* Custom Navigation Buttons */}
       <div
         ref={prevRef}
-        className="absolute top-1/2 -left-6 transform -translate-y-1/2 z-50 cursor-pointer">
-        <button className="bg-red-600 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+        className="absolute top-1/2 -left-4 sm:-left-6 transform -translate-y-1/2 z-50 cursor-pointer">
+        <button className="bg-red-600 text-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-lg">
           <FaChevronLeft />
         </button>
       </div>
       <div
         ref={nextRef}
-        className="absolute top-1/2 -right-6 transform -translate-y-1/2 z-50 cursor-pointer">
-        <button className="bg-red-600 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+        className="absolute top-1/2 -right-4 sm:-right-6 transform -translate-y-1/2 z-50 cursor-pointer">
+        <button className="bg-red-600 text-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-lg">
           <FaChevronRight />
         </button>
       </div>
@@ -48,7 +50,7 @@ const OurWorks = () => {
         breakpoints={{
           320: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 5,
           },
           640: {
             slidesPerView: 2,
@@ -72,9 +74,20 @@ const OurWorks = () => {
         className="mySwiper">
         {[1, 2, 3].map((_, i) => (
           <SwiperSlide key={i}>
-            <div className="bg-white p-4 rounded-lg flex flex-col w-full max-w-[393px] h-[292px] mx-auto">
+            <div
+              className="
+    bg-white 
+    w-[85%]              /* Mobile: 85% of screen (smaller) */
+    sm:w-[250px]         /* Small screens: reduced to 250px */
+    md:w-[330px]         /* Desktop: reduced to 330px */
+    h-auto               /* Let height grow naturally */
+    md:h-[230px]         /* Desktop: reduced from 260px to 230px */
+    p-4 
+    rounded-lg 
+    flex flex-col 
+    mx-auto">
               {/* Image */}
-              <div className="relative w-full h-[180px] mb-4 overflow-hidden rounded-xl">
+              <div className="relative w-full h-[120px] md:h-[160px] mb-3 md:mb-4 overflow-hidden rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1614095557130-2f4a9e1da57d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hpcCUyMG9uJTIwc2VhfGVufDB8fDB8fHww"
                   alt="Slide"
@@ -99,6 +112,7 @@ const OurWorks = () => {
               <h3 className="font-bold text-black text-lg mb-1">
                 {displayedText}
               </h3>
+
               <p
                 onClick={toggleReadMore}
                 className="text-black font-semibold underline cursor-pointer flex items-center gap-1">

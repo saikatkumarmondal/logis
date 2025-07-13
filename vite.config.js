@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
   build: {
     rollupOptions: {
-      external: ["react-icons/fa", "react-icons/fa6"],
+      chunkSizeWarningLimit: 1500,
     },
   },
 });
